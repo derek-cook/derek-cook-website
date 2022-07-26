@@ -1,4 +1,5 @@
-import { env } from "./src/env/server.mjs";
+// Disable env var checks for now, until I need backend features
+// import { env } from "./src/env/server.mjs";
 
 /**
  * Don't be scared of the generics here.

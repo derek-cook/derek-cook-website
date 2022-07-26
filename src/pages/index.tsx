@@ -6,14 +6,11 @@ import ExternalLinkIcon from '@heroicons/react/outline/ExternalLinkIcon';
 import GithubIcon from '../../public/github.svg';
 import LinkedInIcon from '../../public/linkedin.svg';
 import EmailIcon from '../../public/mail.svg';
-import { trpc } from '../utils/trpc';
 import nutritionLabelImage from '../../public/NutritionistLogo512V2.jpg';
 import coinsImage from '../../public/coins.png';
 import ChatSS from '../../public/chat-app-ss.png';
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }]);
-
   return (
     <>
       <Head>
