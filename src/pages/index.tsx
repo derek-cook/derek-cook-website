@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             <a href="https://www.linkedin.com/in/derekcook33/">
               <Image src={LinkedInIcon} alt="linkedin" />
             </a>
-            <a href="mailto:derek.cook@hey.com?subject=derek-dev:&body=(Leave 'derek-dev' in the subject line to bypass my screener)">
+            <a href="mailto:derek.cook@hey.com?subject=April202:&body=(Leave 'April202' in the subject line to bypass my screener)">
               <Image src={EmailIcon} alt="email" />
             </a>
           </div>
@@ -86,15 +86,17 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ title, description, src, href }: ProjectCardProps) => (
   <div className="rounded-lg shadow-sm border flex flex-col bg-white overflow-hidden m-5 w-full md:w-80">
-    <a href={href} target="_blank" rel="noreferrer">
-      <div className="aspect-square relative">
-        {src ? <Image alt="project picture" src={src} layout="fill" objectFit="cover" /> : null}
-      </div>
-      <div className="p-3 border-t">
-        <h3 className="font-semibold text-sm mb-2">{title}</h3>
-        <p className="text-xs text-gray-500 ">{description}</p>
-      </div>
-    </a>
+    <div className="aspect-square relative">
+      {src ? <Image alt="project picture" src={src} layout="fill" objectFit="cover" /> : null}
+    </div>
+    <div className="p-3 border-t">
+      <a href={href} aria-describedby="projectId" target="_blank" rel="noreferrer">
+        <h3 id="projectId" className="font-semibold text-sm mb-2">
+          {title}
+        </h3>
+      </a>
+      <p className="text-xs text-gray-500 ">{description}</p>
+    </div>
   </div>
 );
 
