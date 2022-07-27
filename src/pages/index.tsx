@@ -90,7 +90,13 @@ const ProjectCard = ({ title, description, src, href }: ProjectCardProps) => (
       {src ? <Image alt="project picture" src={src} layout="fill" objectFit="cover" /> : null}
     </div>
     <div className="p-3 border-t">
-      <a href={href} aria-describedby="projectId" target="_blank" rel="noreferrer">
+      <a
+        href={href}
+        aria-describedby="projectId"
+        target="_blank"
+        rel="noreferrer"
+        className="hover:decoration-gray-500"
+      >
         <h3 id="projectId" className="font-semibold text-sm mb-2">
           {title}
         </h3>
