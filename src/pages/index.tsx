@@ -8,7 +8,7 @@ import LinkedInIcon from '../../public/linkedin.svg';
 import EmailIcon from '../../public/mail.svg';
 import nutritionLabelImage from '../../public/NutritionistLogo512V2.jpg';
 import coinsImage from '../../public/coins.png';
-import ChatSS from '../../public/chat-app-ss.png';
+import ChatSS from '../../public/chat-screenshot.png';
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +23,9 @@ const Home: NextPage = () => {
         <div className="flex border-b pb-3 mb-3 justify-between items-center">
           <div id="headline" className=" bg-white flex flex-col">
             <h1 className="text-xl md:text-5xl font-thin">Derek Cook</h1>
-            <h2 className="text-xs md:text-lg text-gray-600">Software Engineer</h2>
+            <h2 className="text-xs md:text-lg text-gray-600">
+              Software Engineer
+            </h2>
           </div>
           <div id="links" className="flex space-x-3 ">
             <a href="https://github.com/derek-cook">
@@ -55,9 +57,9 @@ const Home: NextPage = () => {
           />
           <ProjectCard
             title="Full Stack Chat (2022)"
-            description="Work in progress. Built with Next, Tailwind, tRPC, Prisma, Postgres, and Typescript. Check it out on GitHub."
+            description="(In progress) A simple chat demo. Built with Next (React), Tailwind, tRPC, Prisma, Postgres, Clerk, and Typescript. Try creating a new conversation, add me by username, 'derek' and say hello. This instance's database will be periodically wiped."
             src={ChatSS}
-            href="https://github.com/derek-cook/sage-web"
+            href="https://sage-t3-chat.vercel.app/"
           />
         </div>
         <div className="flex justify-center p-3">
@@ -68,7 +70,11 @@ const Home: NextPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Resume <ExternalLinkIcon aria-label="external link" className="ml-2 inline w-4 h-4" />
+              Resume{' '}
+              <ExternalLinkIcon
+                aria-label="external link"
+                className="ml-2 inline w-4 h-4"
+              />
             </a>
           </button>
         </div>
@@ -87,7 +93,14 @@ type ProjectCardProps = {
 const ProjectCard = ({ title, description, src, href }: ProjectCardProps) => (
   <div className="rounded-lg shadow-sm border flex flex-col bg-white overflow-hidden m-5 w-full md:w-80">
     <div className="aspect-square relative">
-      {src ? <Image alt="project picture" src={src} layout="fill" objectFit="cover" /> : null}
+      {src ? (
+        <Image
+          alt="project picture"
+          src={src}
+          layout="fill"
+          objectFit="cover"
+        />
+      ) : null}
     </div>
     <div className="p-3 border-t">
       <a
