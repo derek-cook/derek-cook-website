@@ -2,10 +2,11 @@
 /* import { withTRPC } from '@trpc/next';
 import type { AppRouter } from '../server/router';
 import superjson from 'superjson'; */
-import { SessionProvider } from 'next-auth/react';
-import type { AppType } from 'next/dist/shared/lib/utils';
-import Script from 'next/script';
-import '../styles/globals.css';
+import { SessionProvider } from "next-auth/react";
+import type { AppType } from "next/dist/shared/lib/utils";
+import Script from "next/script";
+import * as gtag from "../lib/gtag";
+import "../styles/globals.css";
 
 const MyApp: AppType = ({
   Component,
@@ -14,10 +15,10 @@ const MyApp: AppType = ({
   return (
     <>
       <Script
-        strategy="lazyOnload"
-        src="https://www.googletagmanager.com/gtag/js?id=G-GXY3FB52EZ"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
-      <Script strategy="lazyOnload" id="data-layer-init">
+      <Script strategy="afterInteractive" id="data-layer-init">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -33,8 +34,8 @@ const MyApp: AppType = ({
 };
 
 const getBaseUrl = () => {
-  if (typeof window !== 'undefined') {
-    return '';
+  if (typeof window !== "undefined") {
+    return "";
   }
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
 
